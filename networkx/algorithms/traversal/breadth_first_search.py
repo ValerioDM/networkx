@@ -80,6 +80,7 @@ def generic_bfs_edges(G, source, neighbors=None, depth_limit=None, sort_neighbor
             if child not in visited:
                 yield parent, child
                 visited.add(child)
+                print(child)        #homework-30/3/1
                 if depth_now > 1:
                     queue.append((child, depth_now - 1, neighbors(child)))
         except StopIteration:
@@ -161,6 +162,7 @@ def bfs_edges(G, source, reverse=False, depth_limit=None, sort_neighbors=None):
         successors = G.predecessors
     else:
         successors = G.neighbors
+    print(source)           #homework-30/3/2021
     yield from generic_bfs_edges(G, source, successors, depth_limit, sort_neighbors)
 
 
